@@ -77,11 +77,11 @@ const SpendingManagementPieChart = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const data = [
-    { name: "Rent", value: 1200, color: "#FF6B6B" },
-    { name: "Groceries", value: 500, color: "#FFA500" },
-    { name: "Utilities", value: 300, color: "#4CAF50" },
-    { name: "Entertainment", value: 200, color: "#3F51B5" },
-    { name: "Other", value: 150, color: "#9B59B6" },
+    { name: "Learning", value: 1000, color: "#FF6B6B" },
+    { name: "Chores", value: 500, color: "#FFA500" },
+    { name: "Communicate", value: 300, color: "#4CAF50" },
+    { name: "Sport", value: 200, color: "#3F51B5" },
+    { name: "Helping", value: 150, color: "#9B59B6" },
   ];
 
   const onPieEnter = (_, index) => {

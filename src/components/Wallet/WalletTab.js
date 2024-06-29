@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TransferForm from "./TransferForm";
-import SavingTab from "./SavingTab";
-import SpendingManagementPieChart from "./SpendingManagement";
+import HistoryTab from "./HistoryTab";
 import DashboardTab from "./DashboardTab";
+import SavingTab from "./SavingTab";
 
 const WalletTab = ({ activeTab, setActiveTabs }) => {
   const [activeOptions, setActiveOptions] = useState(0);
@@ -10,33 +10,37 @@ const WalletTab = ({ activeTab, setActiveTabs }) => {
   return (
     <>
       <div>
-        <div className="relative w-full bg-white p-4 flex justify-around max-w-screen-lg mx-auto">
+        <div className="flex relative bg-white p-4 justify-around max-w-screen-lg mx-auto">
           <button
-            className={`flex flex-col items-center ${
-              activeTab === 0 ? "text-colorPalette2" : "text-black"
+            className={`flex flex-col rounded-full items-center py-2 px-4 w-1/2 shadow-md mx-2 ${
+              activeTab === 0
+                ? "text-white bg-colorPalette2"
+                : "text-black bg-gray-200 hover:bg-gray-300"
             }`}
+            onClick={() => setActiveTabs(0)}
           >
             <h2
-              onClick={() => {
-                setActiveTabs(0);
-              }}
-              className="text-xl mt-1"
+              className={`text-xl mt-1 ${
+                activeTab === 0 ? "text-white" : "text-black"
+              }`}
             >
               Transactions
             </h2>
           </button>
           <button
-            className={`flex flex-col items-center ${
-              activeTab === 1 ? "text-colorPalette2" : "text-black"
+            className={`flex flex-col rounded-full items-center py-2 px-4 w-1/2 mx-2 shadow-md ${
+              activeTab === 1
+                ? "text-white bg-colorPalette2"
+                : "text-black bg-gray-200 hover:bg-gray-300"
             }`}
+            onClick={() => setActiveTabs(1)}
           >
             <h2
-              onClick={() => {
-                setActiveTabs(1);
-              }}
-              className="text-xl mt-1"
+              className={`text-xl mt-1 ${
+                activeTab === 1 ? "text-white" : "text-black"
+              }`}
             >
-              Savings
+              Piggy bank
             </h2>
           </button>
         </div>
@@ -77,7 +81,8 @@ const WalletTab = ({ activeTab, setActiveTabs }) => {
       </div>
       {activeTab === 0 && activeOptions === 0 && <DashboardTab />}
       {activeTab === 0 && activeOptions === 1 && <TransferForm />}
-      {activeTab === 0 && activeOptions === 2 && <SavingTab />}
+      {activeTab === 0 && activeOptions === 2 && <HistoryTab />}
+      {activeTab === 1 && <SavingTab />}
     </>
   );
 };

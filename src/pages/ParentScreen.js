@@ -9,8 +9,8 @@ import exercise from '../assets/typeTask/exercise.png';
 import studying from '../assets/typeTask/studying.png';
 import caring from '../assets/typeTask/caring.png';
 
-import './ParentScreen.css';
-import BottomParentNavigation from '../components/BottomParentNavigation';
+import "./ParentScreen.css";
+import BottomParentNavigation from "../components/BottomParentNavigation";
 
 var childrenData = [
     {

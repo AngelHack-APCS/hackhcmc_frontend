@@ -1,143 +1,50 @@
-import React from "react";
-import Transaction from "./Transaction"; // Make sure the path to the Transaction component is correct
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Cookie from "js-cookie"; // Import js-cookie
 
-const historyTransactions = [
-  // Add some sample transactions data here
-  {
-    id: 1,
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-    date: "2024-06-29",
-    name: "Transaction 1",
-    type: "plus",
-    points: 100,
-    tran_code: "T1",
-    amount: 100,
-    content: "Payment received",
-  },
-  {
-    id: 2,
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-    date: "2024-06-28",
-    name: "Transaction 2",
-    type: "minus",
-    points: 50,
-    tran_code: "T2",
-    amount: 50,
-    content: "Payment sent",
-  },
-  {
-    id: 3,
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-    date: "2024-06-28",
-    name: "Transaction 2",
-    type: "minus",
-    points: 50,
-    tran_code: "T2",
-    amount: 50,
-    content: "Payment sent",
-  },
-  {
-    id: 4,
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-    date: "2024-06-28",
-    name: "Transaction 2",
-    type: "minus",
-    points: 50,
-    tran_code: "T2",
-    amount: 50,
-    content: "Payment sent",
-  },
-  {
-    id: 5,
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-    date: "2024-06-28",
-    name: "Transaction 2",
-    type: "minus",
-    points: 50,
-    tran_code: "T2",
-    amount: 50,
-    content: "Payment sent",
-  },
-];
+import Transaction from "./Transaction"; // Adjust path as per your project structure
 
-const pendingTransactions = [
-    // Add some sample transactions data here
-    {
-      id: 1,
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-      date: "2024-06-29",
-      name: "Transaction 1",
-      type: "minus",
-      points: 100,
-      tran_code: "T1",
-      amount: 100,
-      content: "Payment received",
-    },
-    {
-      id: 2,
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-      date: "2024-06-28",
-      name: "Transaction 2",
-      type: "plus",
-      points: 50,
-      tran_code: "T2",
-      amount: 50,
-      content: "Payment sent",
-    },
-    {
-        id: 3,
-        icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-        date: "2024-06-29",
-        name: "Transaction 1",
-        type: "minus",
-        points: 100,
-        tran_code: "T1",
-        amount: 100,
-        content: "Payment received",
-      },
-      {
-        id: 4,
-        icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-        date: "2024-06-28",
-        name: "Transaction 2",
-        type: "plus",
-        points: 50,
-        tran_code: "T2",
-        amount: 50,
-        content: "Payment sent",
-      },
-      {
-        id: 5,
-        icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-        date: "2024-06-28",
-        name: "Transaction 2",
-        type: "plus",
-        points: 50,
-        tran_code: "T2",
-        amount: 50,
-        content: "Payment sent",
-      },
-      {
-        id: 6,
-        icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/189021f56083de40e8866b0542a256913b68042ab15141a1aab65f2c23ea1fa3?apiKey=8b7bde825caa4a699878600964889e8b&",
-        date: "2024-06-28",
-        name: "Transaction 2",
-        type: "plus",
-        points: 50,
-        tran_code: "T2",
-        amount: 50,
-        content: "Payment sent",
-      },
-  ];
+const TransactionList = ({ selectedTab, onTransactionClick }) => {
+  const [completedTransactions, setCompletedTransactions] = useState([]);
+  const [pendingTransactions, setPendingTransactions] = useState([]);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        // Set the parent_id cookie using js-cookie
+        Cookie.set("parent_id", "1");
+
+        // Axios request to fetch transactions
+        const response = await axios.get('http://localhost:5000/parent_wallet/transactions', {
+          withCredentials: true, // Ensure credentials are sent with the request
+        });
+        const fetchedTransactions = response.data;
+
+        // Separate completed and pending transactions
+        const completed = fetchedTransactions.filter(trans => trans.status === 'completed');
+        const pending = fetchedTransactions.filter(trans => trans.status === 'pending');
 
 
-const TransactionList = ({selectedTab, onTransactionClick }) => {
-    const transactions = selectedTab === "history" ? historyTransactions : pendingTransactions;
+        setCompletedTransactions(completed);
+        setPendingTransactions(pending);
+      } catch (error) {
+        console.error('Error fetching transactions:', error);
+        // Handle error states
+      }
+    };
+
+    fetchTransactions();
+  }, [selectedTab]); // Include any dependencies if needed
 
   return (
     <div className="overflow-y-auto max-h-[450px]">
-      {transactions.map((trans) => (
-        <div key={trans.id} onClick={() => onTransactionClick(trans)}>
+      {selectedTab === "history" && completedTransactions.map((trans) => (
+        <div key={trans.transaction_id} onClick={() => onTransactionClick(trans)}>
+          <Transaction trans={trans} />
+        </div>
+      ))}
+      {selectedTab === "pending" && pendingTransactions.map((trans) => (
+        <div key={trans.transaction_id} onClick={() => onTransactionClick(trans)}>
           <Transaction trans={trans} />
         </div>
       ))}
