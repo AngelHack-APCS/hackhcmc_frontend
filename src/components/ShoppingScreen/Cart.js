@@ -4,14 +4,14 @@ import close from '../../assets/close.png';
 import coin from '../../assets/coin_image.png';
 import '../../css/Cart.css';
 
-const Cart = ({ items, name, onClose, onRemoveItem }) => {
+const Cart = ({ items, name, onClose, onAddItem ,onRemoveItem }) => {
   const [activeItems, setActiveItems] = useState({});
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const newTotal = items.reduce((sum, item, index) => {
       if (activeItems[index]) {
-        return sum + parseInt(item.price);
+        return sum + parseInt(item.price) * item.quantity;
       }
       return sum;
     }, 0);
@@ -25,21 +25,21 @@ const Cart = ({ items, name, onClose, onRemoveItem }) => {
     }));
   };
 
+  const handleItemAdd = (index) => {
+    onAddItem(index)
+  };
+
   const handleItemRemove = (index) => {
-    setActiveItems((prevActiveItems) => ({
-      ...prevActiveItems,
-      [index]: false,
-    }));
     onRemoveItem(index);
   };
 
   return (
-    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[450px]">
+    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[414px]">
       <div className="flex items-center justify-between mb-4">
         <button onClick={onClose} className="pl-2">
           <img src={close} className="h-5 w-5" alt="Close" />
         </button>
-        <h1 className="text-2xl font-bold text-center flex-1">{name}'s Cart</h1>
+        <h1 className="text-2xl font-bold text-center flex-1">Cart</h1>
       </div>
       {items.length > 0 ? (
         <div>
@@ -48,6 +48,7 @@ const Cart = ({ items, name, onClose, onRemoveItem }) => {
               items={items} 
               activeItems={activeItems} 
               onItemToggle={handleItemToggle} 
+              onItemAdd={handleItemAdd}
               onItemRemove={handleItemRemove} 
             />
           </div>
@@ -73,7 +74,8 @@ const Cart = ({ items, name, onClose, onRemoveItem }) => {
           </div>
         </div>
       )}
-      <div className='bg-colorPalette1 mb-20 pb-20 pt-10'></div>
+      <div className='bg-colorPalette1 mb-20 pb-20'></div>
+      <div className='bg-colorPalette1 mb-24 pb-24'></div>
     </div>
   );
 };

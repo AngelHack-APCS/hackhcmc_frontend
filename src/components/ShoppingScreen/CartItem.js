@@ -1,7 +1,7 @@
 import React from 'react';
 import coin from '../../assets/coin_image.png';
 
-const CartItem = ({ itemName, itemPrice, itemImage, onClickPlus, onClickMinus, isActive }) => {
+const CartItem = ({ itemName, itemPrice, itemImage, itemQuantity ,onClick, onClickPlus, onClickMinus, isActive }) => {
   return (
     <div 
       className={`max-w-xs mx-auto rounded-lg bg-colorPalette1 p-1.5 ${isActive ? 'border-4 border-colorPalette3' : 'border border-colorPalette4'} transition-all duration-50 ease-in-out`}
@@ -10,6 +10,7 @@ const CartItem = ({ itemName, itemPrice, itemImage, onClickPlus, onClickMinus, i
         src={itemImage} 
         alt={itemName} 
         className="w-full rounded-md" 
+        onClick={onClick}
       />
       <div className="text-left ml-2 justify-between">
         <h2 className="text-lg font-bold">{itemName}</h2>
@@ -27,6 +28,7 @@ const CartItem = ({ itemName, itemPrice, itemImage, onClickPlus, onClickMinus, i
             >
               -
             </button>
+            <span className="text-1xl mt-2 align-middle text-black font-medium">{itemQuantity}</span>
             <button 
               className="bg-colorPalette2 text-white px-2 rounded-full mt-2" 
               onClick={onClickPlus}
