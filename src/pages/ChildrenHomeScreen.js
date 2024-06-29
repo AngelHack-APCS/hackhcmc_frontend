@@ -43,7 +43,7 @@ const ChildrenHomeScreen = () => {
         </button>
       </div>
 
-      <div className="flex-grow overflow-y-auto mb-20">
+      <div className="flex-grow overflow-y-auto">
         {showFinishedTasks ? (
           <TaskList type="finished" />
         ) : (
