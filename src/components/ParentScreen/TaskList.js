@@ -5,7 +5,7 @@ function TaskCounter({ count }) {
   if (count === 0) return null;
 
   return (
-    <div className="justify-center items-center px-2.5 text-sm font-medium leading-5 text-white bg-red-400 rounded-3xl h-[27px] w-[27px]">
+    <div className="justify-center items-center px-2.5 py-1 text-sm font-medium leading-5 text-white bg-red-400 rounded-3xl h-[27px] w-[27px]">
       {count}
     </div>
   );
