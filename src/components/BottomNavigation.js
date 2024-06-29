@@ -8,7 +8,7 @@ import {
   Home,
 } from "lucide-react";
 
-const BottomNavigation = () => {
+const BottomNavigation = ({ isMain }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,14 +37,14 @@ const BottomNavigation = () => {
         <WalletIcon />
         <span className="text-xs mt-1">Wallet</span>
       </button>
-      <button
-        className={`flex flex-col items-center ${
-          isActive("/") ? "text-blue-500" : "text-gray-500"
-        }`}
-        onClick={() => navigate("/shop")}
-      >
-        <WalletIcon />
-      </button>
+      {isMain && (
+        <button
+          className={`flex flex-col items-center ${
+            isActive("/") ? "text-blue-500" : "text-gray-500"
+          }`}
+          onClick={() => navigate("/shop")}
+        ></button>
+      )}
 
       <button
         className={`flex flex-col items-center ${
