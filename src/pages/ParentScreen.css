@@ -1,0 +1,16 @@
+@keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .task-manager-container {
+    position: fixed; /* Fixed position to stay at the bottom */
+    bottom: 0; /* Align to the bottom */
+    left: 0;
+    width: 100%; /* Take full width */
+    animation: slideUp 0.5s ease-out forwards; /* Apply the animation */
+  }
