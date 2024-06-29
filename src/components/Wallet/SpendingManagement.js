@@ -73,23 +73,31 @@ const renderActiveShape = (props) => {
   );
 };
 
-const SpendingManagementPieChart = () => {
+const SpendingManagementPieChart = ({ tabSelected }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const data = [
-    { name: "Learning", value: 1000, color: "#FF6B6B" },
-    { name: "Chores", value: 500, color: "#FFA500" },
-    { name: "Communicate", value: 300, color: "#4CAF50" },
-    { name: "Sport", value: 200, color: "#3F51B5" },
-    { name: "Helping", value: 150, color: "#9B59B6" },
-  ];
+  const data =
+    tabSelected === 0
+      ? [
+          { name: "Learning", value: 68, color: "#FF6B6B" },
+          { name: "Chores", value: 34, color: "#FFA500" },
+          { name: "Communicate", value: 32, color: "#4CAF50" },
+          { name: "Sport", value: 36, color: "#3F51B5" },
+          { name: "Helping", value: 44, color: "#9B59B6" },
+        ]
+      : [
+          { name: "Toys", value: 68, color: "#FF6B6B" },
+          { name: "Coupon", value: 34, color: "#FFA500" },
+          { name: "Gift", value: 32, color: "#4CAF50" },
+          { name: "Others", value: 36, color: "#3F51B5" },
+        ];
 
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={300}>
       <PieChart>
         <Pie
           activeIndex={activeIndex}
