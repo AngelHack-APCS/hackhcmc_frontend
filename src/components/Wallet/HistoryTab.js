@@ -1,8 +1,7 @@
 import React from "react";
-import SpendingManagementPieChart from "./SpendingManagement";
 import TransactionRecord from "./TransactionRecord";
 
-const SavingTab = () => {
+const HistoryTab = () => {
   //   transaction_list = {};
 
   return (
@@ -29,4 +28,4 @@ const SavingTab = () => {
   );
 };
 
-export default SavingTab;
+export default HistoryTab;
