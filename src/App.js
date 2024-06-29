@@ -59,13 +59,13 @@ const App = () => {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
-          <Route path="/wallet/parent" element={<WalletParentScreen />} />
+          <Route path="/parent/wallet" element={<WalletParentScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />
           <Route path="/parent" element={<ParentScreen />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Routes>
       </div>
-    </Router>
+    </Router> 
   );
 };
 
