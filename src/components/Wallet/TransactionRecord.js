@@ -5,7 +5,7 @@ const TransactionRecord = ({ date, type, name, amount }) => {
   const isPositive = amount > 0;
 
   return (
-    <button className="w-full bg-gray-100 p-4 rounded-lg flex items-center justify-between hover:bg-gray-200 transition-colors">
+    <button className="w-full bg-gray-100 p-4 rounded-lg flex items-center justify-between hover:bg-gray-200 transition-colors mt-2 mb-2">
       <div className="flex items-center space-x-4">
         {type === "Transfer" ? (
           <Home className="text-blue-500" size={24} />
