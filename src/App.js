@@ -15,6 +15,7 @@ import { sessionState, useChatSession } from "@chainlit/react-client";
 import { useAuth } from "@chainlit/react-client";
 import { useRecoilValue } from "recoil";
 import { useApi } from "./ApiContext";
+import WalletScreen from "./pages/WalletScreen";
 
 const userEnv = {};
 
@@ -55,6 +56,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<ChildrenHomeScreen />} />
           <Route path="/shop" element={<ShoppingScreen />} />
+          <Route path="/wallet" element={<WalletScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
