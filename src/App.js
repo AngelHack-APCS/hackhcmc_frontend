@@ -11,6 +11,7 @@ import { useAuth } from "@chainlit/react-client";
 import { useRecoilValue } from "recoil";
 import { useApi } from "./ApiContext";
 import WalletScreen from "./pages/WalletScreen";
+import WalletParentScreen from "./pages/WalletParentScreen";
 
 const userEnv = {};
 
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
+          <Route path="/wallet/parent" element={<WalletParentScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />
         </Routes>
       </div>
