@@ -4,6 +4,7 @@ import ChildrenList from '../components/ParentScreen/ChildrenList'; // Adjust th
 import TaskManagement from '../components/ParentScreen/TaskManager'; // Adjust the path according to your file structure
 
 import './ParentScreen.css';
+import BottomNavigation from '../components/BottomNavigation';
 
 const ParentScreen = () => {
     const [selectedChild, setSelectedChild] = useState(null);

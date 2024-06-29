@@ -34,7 +34,7 @@ const Cart = ({ items, name, onClose, onAddItem ,onRemoveItem }) => {
   };
 
   return (
-    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[414px]">
+    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[430px]">
       <div className="flex items-center justify-between mb-4">
         <button onClick={onClose} className="pl-2">
           <img src={close} className="h-5 w-5" alt="Close" />
