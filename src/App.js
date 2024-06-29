@@ -6,6 +6,7 @@ import LoginScreen from "./pages/LoginScreen";
 import SignupScreen from "./pages/SignupScreen";
 import ParentInfoScreen from "./pages/ParentInfoScreen";
 import ParentScreen from "./pages/ParentScreen";
+import OneTimeCodeScreen from "./pages/OneTimeCodeScreen";
 import "./index.css";
 import { sessionState, useChatSession } from "@chainlit/react-client";
 import { useAuth } from "@chainlit/react-client";
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
           <Route path="/parent/wallet" element={<WalletParentScreen />} />
+          <Route path="/parent/otc" element={<OneTimeCodeScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />
           <Route path="/parent" element={<ParentScreen />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
