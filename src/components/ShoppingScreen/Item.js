@@ -24,13 +24,13 @@ const Item = ({ item, onAddToCart }) => {
         <div className="flex items-center justify-between"> {/* Added justify-between here */}
           <div className="flex items-center"> {/* Maintain items-center for vertical alignment */}
             <span className="text-2xl">
-              <img src={coin} alt="coin" className="w-4 h-4 inline-block" /> {/* Adjusted size of coin */}
+              <img src={coin} alt="coin" className="w-6 h-6 inline-block" /> {/* Adjusted size of coin */}
             </span>
-            <span className="text-1xl ml-1 mt-1 align-middle text-colorPalette3 font-medium">{item.price}</span>
+            <span className="text-2xl ml-1 mt-1 align-middle text-colorPalette3 font-medium">{item.price}</span>
           </div>
           <div className="inline-block">
             <button 
-              className="bg-colorPalette2 text-white px-2 rounded-full mt-2" 
+              className="bg-colorPalette2 text-white px-2 rounded-full mt-2 text-2xl" 
               onClick={handleZoom}
             >
               +

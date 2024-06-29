@@ -11,8 +11,10 @@ import { sessionState, useChatSession } from "@chainlit/react-client";
 import { useAuth } from "@chainlit/react-client";
 import { useRecoilValue } from "recoil";
 import { useApi } from "./ApiContext";
-import WalletScreen from "./pages/WalletScreen";
 import { Navigate } from "react-router-dom";
+
+import WalletScreen from "./pages/WalletScreen";
+import WalletParentScreen from "./pages/WalletParentScreen";
 
 const userEnv = {};
 
@@ -57,12 +59,13 @@ const App = () => {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
+          <Route path="/parent/wallet" element={<WalletParentScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />
           <Route path="/parent" element={<ParentScreen />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Routes>
       </div>
-    </Router>
+    </Router> 
   );
 };
 

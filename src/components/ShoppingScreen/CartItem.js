@@ -13,7 +13,7 @@ const CartItem = ({ itemName, itemPrice, itemImage, itemQuantity ,onClick, onCli
         onClick={onClick}
       />
       <div className="text-left ml-2 justify-between">
-        <h2 className="text-lg font-bold">{itemName}</h2>
+        <h2 className="text-lg font-bold" onClick={onClick}>{itemName}</h2>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <span className="text-2xl">

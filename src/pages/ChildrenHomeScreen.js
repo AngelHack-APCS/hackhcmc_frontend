@@ -52,7 +52,7 @@ const ChildrenHomeScreen = () => {
       </div>
 
       <div className="flex-shrink-0">
-        <BottomNavigation />
+        <BottomNavigation isMain={true} />
       </div>
 
       <ChatbotButton />
