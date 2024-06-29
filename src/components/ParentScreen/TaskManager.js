@@ -5,6 +5,7 @@ import { SwipeableList, SwipeableListItem, TrailingActions, SwipeAction, Leading
 import BottomManager from './BottomManager';
 import RewardComponent from './RewardComponent';
 import InfoComponent from './InfoComponent';
+import AddComponent from './AddComponent';
 import 'react-swipeable-list/dist/styles.css';
 import './TaskManager.css';
 
@@ -71,9 +72,10 @@ const TaskCategories = ({ waitingTasksLength, onCategoryChange, selectedCategory
   </div>
 );
 
-const TaskManagement = ({ childID, name, unfinishedTasks, finishedTasks, waitingTasks, balance, onClose }) => {
+const TaskManagement = ({ childID, name, unfinishedTasks, finishedTasks, waitingTasks, balance, onClose, removeTask, approveWaitingTask, addTask }) => {
   const [currentTaskType, setCurrentTaskType] = useState('unfinished'); // Default to 'unfinished'
   const [currentTaskManager, setCurrentTaskManager] = useState('Tasks');
+  const [currentStatusChanged, setCurrentStatusChanged] = useState('0');
   
   let tasks = [
     { date: '24/6/2024', task: 'Folding clothes', points: 30 },
@@ -118,17 +120,34 @@ const TaskManagement = ({ childID, name, unfinishedTasks, finishedTasks, waiting
 
   const handleDeleteTask = (index) => {
     console.log(`Delete task at index ${index}`);
+
+    removeTask(childID, index);
+    // let taskIndex = unfinishedTasks.findIndex(task => task.taskID === index);
+    // unfinishedTasks.splice(taskIndex, 1);
+
+    setCurrentStatusChanged(Date.now());
+    console.log(`After delete: ${JSON.stringify(unfinishedTasks)}`);
   };
 
   const handleApproveTask = (index) => {
     console.log(`Approve task at index ${index}`);
+
+    approveWaitingTask(childID, index);
+
+    setCurrentStatusChanged(Date.now());
   };
 
   const handleDenyTask = (index) => {
     console.log(`Deny task at index ${index}`);
+
+    removeTask(childID, index);
+
+    setCurrentStatusChanged(Date.now());
   };
 
   const MainTasksComponent = ({}) => {
+    // const [isOpenedCreateTask, setIsOpenedCreateTask] = useState(false);
+
     return (
     <>
     <TaskCategories 
@@ -163,9 +182,11 @@ const TaskManagement = ({ childID, name, unfinishedTasks, finishedTasks, waiting
           onLeading={handleDenyTask}
         />
       )}
-      <button className="w-full mt-4 bg-teal-500 text-white py-2 rounded-lg">
-        Create tasks
-      </button>
+      {/* <div className="flex justify-center items-center w-full h-full">
+        <button className="justify-center self-center mt-2 bg-teal-500 text-white px-4 py-2 rounded-lg">
+          Create tasks
+        </button>
+      </div> */}
     </>
     );
   }
@@ -180,6 +201,8 @@ const TaskManagement = ({ childID, name, unfinishedTasks, finishedTasks, waiting
         return <RewardComponent balance={balance} />;
       case 'Info':
         return <InfoComponent childID={childID} name={name} />;
+      case 'Add':
+        return <AddComponent childID={childID} addTask={addTask} />;
       default:
         return <MainTasksComponent tasks={tasks} />;
     }
