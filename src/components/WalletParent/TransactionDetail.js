@@ -8,7 +8,7 @@ const TransactionDetail = ({ tran, onClose }) => {
   }
 
   return (
-    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[430px]">
+    <div className="bg-colorPalette1 p-4 rounded-lg max-h-full relative min-w-[420px]">
       <div className="flex items-center justify-between mb-4">
         <button onClick={onClose} className="pl-2">
           <img src={close} className="h-5 w-5" alt="Close" />
@@ -32,6 +32,7 @@ const TransactionDetail = ({ tran, onClose }) => {
         </div>
       </div>
       <div className='bg-colorPalette1 mb-20 pb-20'></div>
+      <div className='bg-colorPalette1 mb-24 pb-24'></div>
       <div className='bg-colorPalette1 mb-24 pb-24'></div>
     </div>
   );
