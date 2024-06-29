@@ -1,10 +1,17 @@
 import React from 'react';
 import TaskList from './TaskList';
 
+import login from '../../assets/login.png';
+
 const ChildCard = ({ childID, name, imageUrl, tasks, balance, waitingTasks, onClickTask }) => (
   <section className="flex gap-5 items-start px-5 pt-5 pb-1.5 mt-7 text-black rounded-3xl bg-slate-100">
     <div className="flex flex-col items-center text-3xl font-bold whitespace-nowrap">
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3368867b59f87d95acfcf441268d80b15ca13f176ae443ef7ce320f2d1844335?apiKey=8b7bde825caa4a699878600964889e8b&" alt="" className="self-start w-8 aspect-square" />
+      <img 
+        loading="lazy" 
+        src={login} 
+        onClick={() => console.log("login")}
+        alt="" 
+        className="self-start w-8 aspect-square" />
       <img loading="lazy" src={imageUrl} alt={`${name}'s avatar`} className="mt-10 aspect-square w-[104px]" />
       <div className="mt-10">{name}</div>
     </div>
