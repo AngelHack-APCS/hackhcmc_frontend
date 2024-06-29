@@ -5,11 +5,12 @@ import WalletHeader from "../components/Wallet/WalletHeader";
 import wallet from "../assets/wallet.png";
 import TransactionList from "../components/WalletParent/TransactionList";
 import TransactionDetail from "../components/WalletParent/TransactionDetail";
+import BottomParentNavigation from "../components/BottomParentNavigation";
 
 const WalletParentScreen = () => {
-  const [showFinishedTasks, setShowFinishedTasks] = useState(true);
   const [isTransOpen, setIsTransOpen] = useState(false);
   const [selectedTran, setSelectedTran] = useState(null);
+  const [selectedTab, setSelectedTab] = useState("history");
 
   const handleTransactionClick = (tran) => {
     setSelectedTran(tran);
@@ -32,21 +33,21 @@ const WalletParentScreen = () => {
 
       <div className="flex justify-left space-x-4 my-4 flex-shrink-0">
         <button
-          className={`px-4 py-2 rounded-full ${!showFinishedTasks ? "bg-mainColor text-black" : "bg-gray-200"}`}
-          onClick={() => setShowFinishedTasks(false)}
+          className={`px-4 py-2 rounded-full ${selectedTab === "history" ? "bg-mainColor text-white" : "bg-gray-200 text-black"}`}
+          onClick={() => setSelectedTab("history")}
         >
           History
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${showFinishedTasks ? "bg-mainColor text-black" : "bg-gray-200"}`}
-          onClick={() => setShowFinishedTasks(true)}
+          className={`px-4 py-2 rounded-full ${selectedTab === "pending" ? "bg-mainColor text-black" : "bg-gray-200 text-black"}`}
+          onClick={() => setSelectedTab("pending")}
         >
           Pending
         </button>
       </div>
 
       <div className="flex-grow overflow-y-auto">
-        <TransactionList onTransactionClick={handleTransactionClick} />
+        <TransactionList selectedTab={selectedTab} onTransactionClick={handleTransactionClick} />
       </div>
 
       <div className={`absolute inset-0 transition-transform duration-500 transform ${isTransOpen ? 'translate-y-0' : 'translate-y-[300%]'}`} style={{ zIndex: 10 }}>
@@ -54,10 +55,8 @@ const WalletParentScreen = () => {
       </div>
 
       <div className="flex-shrink-0">
-        <BottomNavigation />
+        <BottomParentNavigation />
       </div>
-
-      <ChatbotButton />
     </div>
   );
 };
