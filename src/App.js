@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ChildrenHomeScreen from "./pages/ChildrenHomeScreen";
 import ShoppingScreen from "./pages/ShoppingScreen";
 import LoginScreen from "./pages/LoginScreen";
@@ -60,7 +55,7 @@ const App = () => {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/signup2" element={<ParentInfoScreen />} />
-          <Route path="*" element={<Navigate to="/" replace={true} />} />
+          <Route path="/wallet" element={<WalletScreen />} />
         </Routes>
       </div>
     </Router>

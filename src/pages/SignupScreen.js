@@ -32,6 +32,7 @@ const SignupScreen = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials: 'include',
       });
 
       if (response.status === 403) {
@@ -54,7 +55,7 @@ const SignupScreen = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white p-4 mb-10">
+    <div className="relative min-h-screen bg-white h-screen p-4 font-sans max-w-screen-lg mx-auto flex flex-col overflow-hidden">
       <AuthenHeader returnPath="/auth" />
       <div className='pt-8 pb-12'>
         <AuthenLogo />

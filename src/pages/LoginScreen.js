@@ -16,7 +16,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white p-4">
+    <div className="r min-h-screen bg-white h-screen p-4 font-sans max-w-screen-lg mx-auto flex flex-col overflow-hidden">
       <AuthenHeader />
       <div className='pt-8 pb-16'>
         <AuthenLogo />
