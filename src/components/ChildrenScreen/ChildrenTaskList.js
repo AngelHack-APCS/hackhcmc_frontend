@@ -113,7 +113,7 @@ const TaskList = ({ type }) => {
   );
 
   return (
-    <div className="overflow-y-auto">
+    <div className="overflow-y-auto mb-20">
       <SwipeableList>
         {tasks.map((task) => (
           <SwipeableListItem
