@@ -4,6 +4,7 @@ import ChildrenList from "../components/ParentScreen/ChildrenList"; // Adjust th
 import TaskManagement from "../components/ParentScreen/TaskManager"; // Adjust the path according to your file structure
 
 import "./ParentScreen.css";
+import BottomParentNavigation from "../components/BottomParentNavigation";
 
 const ParentScreen = () => {
   const [selectedChild, setSelectedChild] = useState(null);
@@ -196,8 +197,8 @@ const ParentScreen = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="relative min-h-screen bg-gray-100 h-screen p-4 font-sans max-w-screen-lg mx-auto flex flex-col overflow-hidden">
+      <div className="mx-auto bg-white rounded-xl shadow-md overflow-hidden">
         <div className="p-4">
           <h1 className="text-xl font-semibold mb-2">Welcome back, Jessica!</h1>
           <h2 className="text-2xl font-bold mb-4">Your lovely children</h2>
@@ -222,6 +223,9 @@ const ParentScreen = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className="flex-shrink-0">
+          <BottomParentNavigation />
         </div>
       </div>
     </div>

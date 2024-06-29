@@ -6,6 +6,7 @@ import ShoppingCategoryList from '../components/ShoppingScreen/ShoppingCategoryL
 import Cart from '../components/ShoppingScreen/Cart';
 import '../css/ShoppingScreen.css';
 import BottomNavigation from '../components/BottomNavigation';
+import ChatbotButton from '../components/ChildrenScreen/ChatbotButton';
 
 const categories = ["All", "Toys", "Backpacks"];
 
@@ -86,7 +87,9 @@ const ShoppingScreen = () => {
           </div>
         </div>
       </div>
-      <BottomNavigation />
+      <div className="flex-shrink-0">
+        <BottomNavigation />
+      </div>
     </div>
   );
 };

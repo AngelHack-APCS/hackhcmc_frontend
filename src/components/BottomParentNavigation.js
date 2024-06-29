@@ -8,7 +8,7 @@ import {
   Home,
 } from "lucide-react";
 
-const BottomNavigation = ({ isMain }) => {
+const BottomParentNavigation = ({ isMain }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,7 +22,7 @@ const BottomNavigation = ({ isMain }) => {
         className={`flex flex-col items-center ${
           isActive("/") ? "text-colorPalette3" : "text-gray-500"
         }`}
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/parent")}
       >
         <Home />
         <span className="text-xs mt-1">Home</span>
@@ -32,39 +32,13 @@ const BottomNavigation = ({ isMain }) => {
         className={`flex flex-col items-center ${
           isActive("/wallet") ? "text-colorPalette3" : "text-gray-500"
         }`}
-        onClick={() => navigate("/wallet")}
+        onClick={() => navigate("/parent/wallet")}
       >
         <WalletIcon />
         <span className="text-xs mt-1">Wallet</span>
-      </button>
-      {isMain && (
-        <button
-          className={`flex flex-col items-center ${
-            isActive("/") ? "text-colorPalette3" : "text-gray-500"
-          }`}
-        ></button>
-      )}
-
-      <button
-        className={`flex flex-col items-center ${
-          isActive("/shop") ? "text-colorPalette3" : "text-gray-500"
-        }`}
-        onClick={() => navigate("/shop")}
-      >
-        <ShoppingCartIcon />
-        <span className="text-xs mt-1">Shop</span>
-      </button>
-      <button
-        className={`flex flex-col items-center ${
-          isActive("/settings") ? "text-colorPalette3" : "text-gray-500"
-        }`}
-        onClick={() => navigate("/settings")}
-      >
-        <SettingsIcon />
-        <span className="text-xs mt-1">Settings</span>
       </button>
     </div>
   );
 };
 
-export default BottomNavigation;
+export default BottomParentNavigation;

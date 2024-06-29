@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import AuthenHeader from '../components/Authen/AuthenHeader';
-import AuthenLogo from '../components/Authen/AuthenLogo';
+import React, { useState } from "react";
+import AuthenHeader from "../components/Authen/AuthenHeader";
+import AuthenLogo from "../components/Authen/AuthenLogo";
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -18,10 +18,10 @@ const LoginScreen = () => {
   return (
     <div className="r min-h-screen bg-white h-screen p-4 font-sans max-w-screen-lg mx-auto flex flex-col overflow-hidden">
       <AuthenHeader />
-      <div className='pt-8 pb-16'>
+      <div className="pt-8 pb-16">
         <AuthenLogo />
       </div>
-      
+
       <form onSubmit={handleSignIn} className="p-4">
         <h1 className="text-2xl text-center font-semibold mb-4">Sign in</h1>
         <input
@@ -45,7 +45,7 @@ const LoginScreen = () => {
           Sign in with email
         </button>
       </form>
-      
+
       <div class="flex items-center justify-center pr-4 pl-4">
         <hr class="w-full h-px bg-gray-800 mr-4" />
         <span class="text-center">or</span>
