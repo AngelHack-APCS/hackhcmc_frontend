@@ -1,0 +1,4 @@
+.task-list-container {
+    height: 390px;
+    overflow-y: auto;
+  }
