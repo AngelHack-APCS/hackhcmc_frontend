@@ -16,6 +16,8 @@ import { Navigate } from "react-router-dom";
 
 import WalletScreen from "./pages/WalletScreen";
 import WalletParentScreen from "./pages/WalletParentScreen";
+import ChildrenLoginScreen from "./pages/ChildrenLoginScreen";
+import AuthenScreen from "./pages/AuthenScreen";
 
 const userEnv = {};
 
@@ -54,12 +56,14 @@ const App = () => {
     <Router>
       <div className="container">
         <Routes>
-          <Route path="/" element={<ChildrenHomeScreen />} />
+          <Route path="/child" element={<ChildrenHomeScreen />} />
+          <Route path="/auth" element={<AuthenScreen />} />
           <Route path="/shop" element={<ShoppingScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/signup" element={<SignupScreen />} />
-          <Route path="/signup2" element={<ParentInfoScreen />} />
+          <Route path="/auth/parent/login" element={<LoginScreen />} />
+          <Route path="/auth/child/login" element={<ChildrenLoginScreen />} />
+          <Route path="/auth/parent/signup" element={<SignupScreen />} />
+          <Route path="/auth/parent/signup2" element={<ParentInfoScreen />} />
           <Route path="/parent/wallet" element={<WalletParentScreen />} />
           <Route path="/parent/otc" element={<OneTimeCodeScreen />} />
           <Route path="/wallet" element={<WalletScreen />} />

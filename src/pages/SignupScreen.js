@@ -12,46 +12,48 @@ const SignupScreen = () => {
   const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (password !== confirmPassword) {
       setPasswordMatchError(true);
       return;
     }
 
-    setPasswordMatchError(false);
+    navigate('/signup2');
 
-    const formData = {
-      email: email,
-      password: password,
-    };
+    // setPasswordMatchError(false);
 
-    try {
-      const response = await fetch('http://localhost:5000/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-        credentials: 'include',
-      });
+    // const formData = {
+    //   email: email,
+    //   password: password,
+    // };
 
-      if (response.status === 403) {
-        setErrorMessage('Email has been used for another account.');
-        return;
-      }
+    // try {
+    //   const response = await fetch('http://localhost:5000/auth/signup', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(formData),
+    //     credentials: 'include',
+    //   });
 
-      // Check if the status code starts with 2
-      if (response.status >= 200 && response.status < 300) {
-        navigate('/signup2');
-        return;
-      }
+    //   if (response.status === 403) {
+    //     setErrorMessage('Email has been used for another account.');
+    //     return;
+    //   }
 
-      console.error('Error signing up:', response.statusText);
-      setErrorMessage('Sign up failed. Please try again.');
-    } catch (error) {
-      console.error('Error signing up:', error);
-      setErrorMessage('Sign up failed. Please try again.');
-    }
+    //   // Check if the status code starts with 2
+    //   if (response.status >= 200 && response.status < 300) {
+    //     navigate('/signup2');
+    //     return;
+    //   }
+
+    //   console.error('Error signing up:', response.statusText);
+    //   setErrorMessage('Sign up failed. Please try again.');
+    // } catch (error) {
+    //   console.error('Error signing up:', error);
+    //   setErrorMessage('Sign up failed. Please try again.');
+    // }
   };
 
   return (

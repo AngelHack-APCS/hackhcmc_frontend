@@ -3,6 +3,7 @@ import ChildrenHomeProductList from "../components/ChildrenScreen/ChildrenHomePr
 import TaskList from "../components/ChildrenScreen/ChildrenTaskList";
 import BottomNavigation from "../components/BottomNavigation";
 import ChatbotButton from "../components/ChildrenScreen/ChatbotButton";
+import coin from "../assets/coin.png";
 
 const ChildrenHomeScreen = () => {
   const [showFinishedTasks, setShowFinishedTasks] = useState(true);
@@ -12,7 +13,10 @@ const ChildrenHomeScreen = () => {
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl">Welcome back, Andy!</h1>
         <div className="bg-mainColor text-white px-3 py-1 rounded-full">
-          1,024 <span className="text-yellow-300">●</span>
+          <div className="flex items-center">
+            <span className="text-lg font-semibold">1024</span>
+            <img src={coin} alt="Coin Icon" className="h-6 w-6 ml-1" />
+          </div>
         </div>
       </div>
 

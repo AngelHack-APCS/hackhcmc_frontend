@@ -4,6 +4,49 @@ import Cookie from "js-cookie"; // Import js-cookie
 
 import Transaction from "./Transaction"; // Adjust path as per your project structure
 
+const tempData = [
+  {
+      "transaction_id": 1,
+      "image_url": null,
+      "date": "01/01/2024",
+      "amount": "150",
+      "direction": "plus",
+      "type": "transfer",
+      "status": "completed",
+      "content": "Transfer to account"
+  },
+  {
+      "transaction_id": 2,
+      "image_url": null,
+      "date": "01/02/2024",
+      "amount": "120",
+      "direction": "plus",
+      "type": "reward",
+      "status": "completed",
+      "content": "Reward for good behavior"
+  },
+  {
+      "transaction_id": 3,
+      "image_url": "//www.mykingdom.com.vn/cdn/shop/products/71806_1.jpg?v=1707217656",
+      "date": "01/03/2024",
+      "amount": "180",
+      "direction": "minus",
+      "type": "order",
+      "status": "pending",
+      "content": "Order item 1"
+  },
+  {
+      "transaction_id": 4,
+      "image_url": null,
+      "date": "01/04/2024",
+      "amount": "130",
+      "direction": "minus",
+      "type": "transfer",
+      "status": "completed",
+      "content": "Transfer to another account"
+  }
+];
+
 const TransactionList = ({ selectedTab, onTransactionClick }) => {
   const [completedTransactions, setCompletedTransactions] = useState([]);
   const [pendingTransactions, setPendingTransactions] = useState([]);
