@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import AuthenHeader from '../components/AuthenHeader';
-import AuthenLogo from '../components/AuthenLogo';
+import AuthenHeader from '../components/Authen/AuthenHeader';
+import AuthenLogo from '../components/Authen/AuthenLogo';
+import { useNavigate } from 'react-router-dom';
 
 const ChildrenLoginScreen = () => {
-  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
 
   const handleSignIn = (e) => {
-    e.preventDefault();
-    // Implement sign in logic here
-  };
-
-  const handleSignUp = () => {
-    // Implement sign up logic here
+    navigate('/');
   };
 
   return (

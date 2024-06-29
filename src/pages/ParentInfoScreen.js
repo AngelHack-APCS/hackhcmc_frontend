@@ -11,41 +11,43 @@ const ParentInfoScreen = () => {
 
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
-    const formData = {
-      name: name,
-      dob: dob,
-      role: role,
-    };
+    // const formData = {
+    //   name: name,
+    //   dob: dob,
+    //   role: role,
+    // };
 
-    try {
-      const response = await fetch('http://localhost:5000/auth/updateParentInfo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(formData),
-      });
+    // try {
+    //   const response = await fetch('http://localhost:5000/auth/updateParentInfo', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     credentials: 'include',
+    //     body: JSON.stringify(formData),
+    //   });
 
-      // if (response.status === 403) { 
-      //   setErrorMessage('Email has been used for another account.');
-      //   return;
-      // }
+    //   // if (response.status === 403) { 
+    //   //   setErrorMessage('Email has been used for another account.');
+    //   //   return;
+    //   // }
 
-      // Check if the status code starts with 2
-      if (response.status >= 200 && response.status < 300) {
-        navigate('/');
-        return;
-      }
+    //   // Check if the status code starts with 2
+    //   if (response.status >= 200 && response.status < 300) {
+    //     navigate('/');
+    //     return;
+    //   }
 
-      console.error('Error signing up:', response.statusText);
-      // setErrorMessage('Sign up failed. Please try again.');
-    } catch (error) {
-      console.error('Error signing up:', error);
-      // setErrorMessage('Sign up failed. Please try again.');
-    }
+    //   console.error('Error signing up:', response.statusText);
+    //   // setErrorMessage('Sign up failed. Please try again.');
+    // } catch (error) {
+    //   console.error('Error signing up:', error);
+    //   // setErrorMessage('Sign up failed. Please try again.');
+    // }
+
+    navigate('/');
   }
 
   return (
