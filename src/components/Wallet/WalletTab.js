@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import TransferForm from "./TransferForm";
-import HistoryTab from "./SavingTab";
+import HistoryTab from "./HistoryTab";
 import DashboardTab from "./DashboardTab";
+import SavingTab from "./SavingTab";
 
 const WalletTab = ({ activeTab, setActiveTabs }) => {
   const [activeOptions, setActiveOptions] = useState(0);
@@ -39,7 +40,7 @@ const WalletTab = ({ activeTab, setActiveTabs }) => {
                 activeTab === 1 ? "text-white" : "text-black"
               }`}
             >
-              Savings
+              Piggy bank
             </h2>
           </button>
         </div>
@@ -81,7 +82,7 @@ const WalletTab = ({ activeTab, setActiveTabs }) => {
       {activeTab === 0 && activeOptions === 0 && <DashboardTab />}
       {activeTab === 0 && activeOptions === 1 && <TransferForm />}
       {activeTab === 0 && activeOptions === 2 && <HistoryTab />}
-      {activeTab === 1 && <HistoryTab />}
+      {activeTab === 1 && <SavingTab />}
     </>
   );
 };

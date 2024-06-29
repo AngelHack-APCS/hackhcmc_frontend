@@ -20,7 +20,7 @@ const BottomNavigation = ({ isMain }) => {
     <div className="absolute bottom-0 left-0 w-full bg-white p-4 flex justify-around max-w-screen-lg mx-auto border-t border-gray-200">
       <button
         className={`flex flex-col items-center ${
-          isActive("/") ? "text-blue-500" : "text-gray-500"
+          isActive("/") ? "text-mainColor" : "text-gray-500"
         }`}
         onClick={() => navigate("/")}
       >
@@ -30,7 +30,7 @@ const BottomNavigation = ({ isMain }) => {
 
       <button
         className={`flex flex-col items-center ${
-          isActive("/wallet") ? "text-blue-500" : "text-gray-500"
+          isActive("/wallet") ? "text-mainColor" : "text-gray-500"
         }`}
         onClick={() => navigate("/wallet")}
       >
@@ -40,7 +40,7 @@ const BottomNavigation = ({ isMain }) => {
       {isMain && (
         <button
           className={`flex flex-col items-center ${
-            isActive("/") ? "text-blue-500" : "text-gray-500"
+            isActive("/") ? "text-mainColor" : "text-gray-500"
           }`}
           onClick={() => navigate("/shop")}
         ></button>
@@ -48,7 +48,7 @@ const BottomNavigation = ({ isMain }) => {
 
       <button
         className={`flex flex-col items-center ${
-          isActive("/shop") ? "text-blue-500" : "text-gray-500"
+          isActive("/shop") ? "text-mainColor" : "text-gray-500"
         }`}
         onClick={() => navigate("/shop")}
       >
@@ -57,7 +57,7 @@ const BottomNavigation = ({ isMain }) => {
       </button>
       <button
         className={`flex flex-col items-center ${
-          isActive("/settings") ? "text-blue-500" : "text-gray-500"
+          isActive("/settings") ? "text-mainColor" : "text-gray-500"
         }`}
         onClick={() => navigate("/settings")}
       >
