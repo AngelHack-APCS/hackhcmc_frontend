@@ -8,7 +8,7 @@ const ChildrenLoginScreen = () => {
   const [password, setPassword] = useState('');
 
   const handleSignIn = (e) => {
-    navigate('/');
+    navigate('/child');
   };
 
   return (
