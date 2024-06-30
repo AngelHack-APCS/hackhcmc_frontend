@@ -20,7 +20,7 @@ const ShoppingScreen = () => {
   useEffect(() => {
     const fetchItems = async (pageNum) => {
       try {
-        const response = await fetch(`http://localhost:5000/shop/items/?page=${pageNum}`);
+        const response = await fetch(`http://localhost:5012/shop/items/?page=${pageNum}`);
         const data = await response.json();
         setItems(data);
         setTotalPages(data.totalPages);

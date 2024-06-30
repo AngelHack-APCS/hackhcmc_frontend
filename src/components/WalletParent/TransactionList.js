@@ -54,18 +54,18 @@ const TransactionList = ({ selectedTab, onTransactionClick }) => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        // Set the parent_id cookie using js-cookie
-        Cookie.set("parent_id", "1");
+      //   // Set the parent_id cookie using js-cookie
+      //   Cookie.set("parent_id", "1");
 
-        // Axios request to fetch transactions
-        const response = await axios.get('http://localhost:5000/parent_wallet/transactions', {
-          withCredentials: true, // Ensure credentials are sent with the request
-        });
-        const fetchedTransactions = response.data;
+      //   // Axios request to fetch transactions
+      //   const response = await axios.get('http://localhost:5000/parent_wallet/transactions', {
+      //     withCredentials: true, // Ensure credentials are sent with the request
+      //   });
+      //   const fetchedTransactions = response.data;
 
         // Separate completed and pending transactions
-        const completed = fetchedTransactions.filter(trans => trans.status === 'completed');
-        const pending = fetchedTransactions.filter(trans => trans.status === 'pending');
+        const completed = tempData.filter(trans => trans.status === 'completed');
+        const pending = tempData.filter(trans => trans.status === 'pending');
 
 
         setCompletedTransactions(completed);
