@@ -22,6 +22,10 @@ To install and run the Bara project, follow these steps:
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
 
+## Notice 
+
+We recommend using the mobile view for the best experience. You can do this by opening the developer tools in your browser and selecting a mobile device view. We have tested the project on the iphone 14 pro max view.
+
 ## Usage
 
 Once the development server is running, you can access the Bara project by opening your browser and navigating to `http://localhost:3000`.
