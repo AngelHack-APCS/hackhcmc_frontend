@@ -1,4 +1,4 @@
-# Bara - hackhcmc 2024 - Frontend
+# AngelHack Hackhcmc - Team AIO_APCS1 Frontend Repo
 
 This README provides an overview of the Bara project and its design, which is based on the Figma design available [here](https://www.figma.com/design/wRX32zv5mtt7gnkyB61iGY/AngelHack?node-id=33-4&t=Tq6jNWgWoyrl7ug0-0).
 
