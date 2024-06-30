@@ -37,7 +37,7 @@ const LoginScreen = () => {
     // } catch (error) {
     //   console.error('Error signing in:', error);
     //   setErrorMessage('Sign in failed. Please try again.');
-    // }
+    // }`
 
     navigate("/parent");
   };
