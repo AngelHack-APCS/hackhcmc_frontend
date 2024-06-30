@@ -22,7 +22,7 @@ const BottomNavigation = ({ isMain }) => {
         className={`flex flex-col items-center ${
           isActive("/") ? "text-colorPalette3" : "text-gray-500"
         }`}
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/child")}
       >
         <Home />
         <span className="text-xs mt-1">Home</span>
@@ -58,7 +58,7 @@ const BottomNavigation = ({ isMain }) => {
         className={`flex flex-col items-center ${
           isActive("/settings") ? "text-colorPalette3" : "text-gray-500"
         }`}
-        onClick={() => navigate("/settings")}
+        onClick={() => navigate("/child")}
       >
         <SettingsIcon />
         <span className="text-xs mt-1">Settings</span>

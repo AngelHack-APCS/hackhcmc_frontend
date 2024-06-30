@@ -55,7 +55,8 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <Routes>
+        <Routes> 
+          <Route path="/" element={<Navigate to="/auth" replace={true} />} />
           <Route path="/child" element={<ChildrenHomeScreen />} />
           <Route path="/auth" element={<AuthenScreen />} />
           <Route path="/shop" element={<ShoppingScreen />} />
