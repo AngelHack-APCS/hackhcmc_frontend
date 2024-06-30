@@ -127,8 +127,8 @@ const ChatInput = ({ handleSendMessage }) => {
         const data = await response.json();
         const { transcript } = data;
 
-        // setInputValue(String(transcript));
-        handleSendMessage(String(transcript), []);
+        setInputValue(String(transcript));
+        // handleSendMessage(String(transcript), []);
       } else {
         const errorData = await response.json();
         console.error("Transcription failed:", errorData);
