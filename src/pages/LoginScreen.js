@@ -10,36 +10,34 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
-    // const formData = {
-    //   email: email,
-    //   password: password,
-    // };
+    const formData = {
+      email: email,
+      password: password,
+    };
 
-    // try {
-    //   const response = await fetch('http://localhost:5000/auth/login', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //     credentials: 'include',
-    //   });
+    try {
+      const response = await fetch('http://localhost:5000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include',
+      });
 
-    //   if (response.status >= 200 && response.status < 300) {
-    //     navigate('/parent'); // Change this to the appropriate path after login
-    //     return;
-    //   }
+      if (response.status >= 200 && response.status < 300) {
+        navigate('/parent'); // Change this to the appropriate path after login
+        return;
+      }
 
-    //   console.error('Error signing in:', response.statusText);
-    //   setErrorMessage('Sign in failed. Please try again.');
-    // } catch (error) {
-    //   console.error('Error signing in:', error);
-    //   setErrorMessage('Sign in failed. Please try again.');
-    // }`
-
-    navigate("/parent");
+      console.error('Error signing in:', response.statusText);
+      setErrorMessage('Sign in failed. Please try again.');
+    } catch (error) {
+      console.error('Error signing in:', error);
+      setErrorMessage('Sign in failed. Please try again.');
+    }
   };
 
   const handleSignUp = () => {
@@ -57,6 +55,7 @@ const LoginScreen = () => {
         <h1 className="text-2xl text-center font-semibold mb-4">Sign in</h1>
         <input
           type="email"
+          name="email"
           placeholder="email@domain.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -64,6 +63,7 @@ const LoginScreen = () => {
         />
         <input
           type="password"
+          name="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
