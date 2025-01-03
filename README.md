@@ -6,7 +6,7 @@ This README provides an overview of the Bara project and its design, which is ba
 
 To install and run the Bara project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/AngelHack-APCS/mrcapy`
+1. Clone the repository: `git clone https://github.com/AngelHack-APCS/mrcapy_CS300`
 2. Navigate to the project directory: `cd mrcapy`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
